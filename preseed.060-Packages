@@ -1,0 +1,40 @@
+# -*- preseed-generic -*-
+
+###_ Package selection
+###!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+# B.4.10. Package selection
+
+# You can choose to install any combination of tasks that are available, or
+# choose to install no tasks, and force the installation of a set of
+# packages in some other way. We recommend always including the standard
+# task.
+
+#tasksel tasksel/first multiselect standard, web-server, print-server, gnome-desktop
+tasksel tasksel/first multiselect standard
+
+# Individual additional packages to install
+d-i pkgsel/include string openssh-server build-essential
+# Whether to upgrade packages after debootstrap.
+# Allowed values: none, safe-upgrade, full-upgrade
+d-i pkgsel/upgrade select full-upgrade
+
+# Some versions of the installer can report back on what software you have
+# installed, and what software you use. The default is not to report back,
+# but sending reports helps the project determine what software is most
+# popular and include it on CDs.
+#popularity-contest popularity-contest/participate boolean false
+
+###_ Preseeding other packages
+###!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+# B.4.12. Preseeding other packages
+
+# Depending on what software you choose to install, or if things go wrong
+# during the installation process, it's possible that other questions may
+# be asked. You can preseed those too, of course. To get a list of every
+# possible question that could be asked during an install, do an
+# installation, and then run these commands:
+#   debconf-get-selections --installer > file
+#   debconf-get-selections >> file
+

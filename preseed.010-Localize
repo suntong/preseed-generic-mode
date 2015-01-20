@@ -1,0 +1,44 @@
+# -*- preseed-generic -*-
+#### Contents of the Debian preseed/preconfiguration file
+
+###_ Localization
+###!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+# B.4.1. Localization
+
+# Setting localization values will only work if you are using initrd
+# preseeding. With all other methods the preconfiguration file will only be
+# loaded after these questions have been asked.
+
+# Preseeding only locale sets language, country and locale.
+d-i debian-installer/locale string en_US
+#d-i debian-installer/locale string en_GB.UTF-8
+
+d-i debian-installer/language string en
+d-i debian-installer/country string CA
+# Optionally specify additional locales to be generated.
+d-i localechooser/supported-locales multiselect en_US.UTF-8, zh_CN, zh_CN.GB18030, zh_CN.UTF-8, zh_HK.UTF-8, zh_TW.UTF-8
+
+###__ Keyboard selection.
+###=========================================================================
+d-i console-setup/ask_detect    boolean false
+d-i console-setup/layoutcode    string us
+d-i console-keymaps-at/keymap   select us
+d-i keyboard-configuration/xkb-keymap select us
+# d-i keyboard-configuration/toggle select No toggling
+
+###_ Clock and time zone setup
+###!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+# Controls whether or not the hardware clock is set to UTC.
+d-i clock-setup/utc boolean true
+
+# You may set this to any valid setting for $TZ; see the contents of
+# /usr/share/zoneinfo/ for valid values.
+d-i time/zone string America/Toronto
+
+# Controls whether to use NTP to set the clock during the install
+d-i clock-setup/ntp boolean true
+# NTP server to use. The default is almost always fine here.
+#d-i clock-setup/ntp-server string ntp.example.com
+
