@@ -4,9 +4,9 @@
 ###_ Account setup
 ###!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-# Skip creation of a root account (normal user account will be able to
+# Skip creation of a root account passwd (normal user account will be able to
 # use sudo).
-#d-i passwd/root-login boolean false
+d-i passwd/root-login boolean false
 # Alternatively, to skip creation of a normal user account.
 #d-i passwd/make-user boolean false
 
@@ -14,23 +14,24 @@ d-i user-setup/allow-password-weak      boolean true
 d-i user-setup/password-weak    boolean true
 
 # Root password, either in clear text
-d-i passwd/root-password password r00tme
-d-i passwd/root-password-again password r00tme
+# d-i passwd/root-password password r00tme
+# d-i passwd/root-password-again password r00tme
 # or encrypted using an MD5 hash.
 #d-i passwd/root-password-crypted password [MD5 hash]
 
 # To create a normal user account.
-d-i passwd/user-fullname string Debian User
+d-i passwd/user-fullname string Debian
 d-i passwd/username string debian
 # Normal user's password, either in clear text
-d-i passwd/user-password password insecure
-d-i passwd/user-password-again password insecure
+d-i passwd/user-password password debian
+d-i passwd/user-password-again password debian
 # or encrypted using an MD5 hash.
 #d-i passwd/user-password-crypted password [MD5 hash]
 # Create the first user with the specified UID instead of the default.
-d-i passwd/user-uid string 1010
+d-i passwd/user-uid string 9999
+d-i passwd/user-uid string 1001
 
 # The user account will be added to some standard initial groups. To
 # override that, use this.
-d-i passwd/user-default-groups string audio cdrom video
+d-i passwd/user-default-groups string adm tty disk lp mail news uucp man dialout fax voice cdrom floppy tape sudo audio dip www-data backup operator list irc src gnats shadow video sasl plugdev staff games users nogroup crontab syslog fuse messagebus mlocate ssh lpadmin sambashare vboxsf
 
