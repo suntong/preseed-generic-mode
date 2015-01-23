@@ -48,7 +48,7 @@ d-i partman-lvm/confirm_nooverwrite boolean true
 # - home:   separate /home partition
 # - multi:  separate /home, /var, and /tmp partitions
 d-i partman-auto/choose_recipe select multi
-d-i partman/default_filesystem  string btrfs
+d-i partman/default_filesystem string ext4
 
 # The full recipe format is documented in the file partman-auto-recipe.txt
 # included in the 'debian-installer' package or available from D-I source
