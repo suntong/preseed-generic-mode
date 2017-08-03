@@ -2,6 +2,7 @@
 ;; -*- emacs-lisp -*-
 
 ;; Copyright (C) 2015 Tong Sun
+;; License: GPL version 3, or any later version
 
 ;; Author: Tong Sun <suntong001@users.sourceforge.net>
 ;; URL: https://github.com/suntong001/preseed-generic-mode
